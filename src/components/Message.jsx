@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import styled from '@emotion/native';
+import { useNavigation } from '@react-navigation/native';
 
 const storiesData = [
   {
@@ -48,30 +49,39 @@ const storiesData = [
   },
 ];
 
-const Message = ({ navigation }) => {
+const Message = () => {
+  const navigation = useNavigation();
+  const goToChat = () => {
+    navigation.navigate('Chat');
+  };
   return (
     <>
       <TextContainer>
         <StyledText>Сообщения</StyledText>
       </TextContainer>
+
       <MessageWrapper>
         {storiesData.map((story, index) => (
-          <SingleMessage key={story.id}>
-            <Image source={story.photo} style={{ width: 64, height: 64 }} />
-            <MessageTextWrapper>
-              <TextUser>{story.name}</TextUser>
-              <TextMessage>{story.message}</TextMessage>
-            </MessageTextWrapper>
-            <MessageRightInfo>
-              <TextTime>{story.time}</TextTime>
-              {index === 0 && (
-                <Image
-                  source={require('../../assets/svg/Frame.png')}
-                  style={{ width: 20, height: 18, marginLeft: 15 }}
-                />
-              )}
-            </MessageRightInfo>
-          </SingleMessage>
+          <TouchableOpacity onPress={goToChat} key={story.id}>
+            <MessageContainer>
+              <SingleMessage>
+                <Image source={story.photo} style={{ width: 64, height: 64 }} />
+                <MessageTextWrapper>
+                  <TextUser>{story.name}</TextUser>
+                  <TextMessage>{story.message}</TextMessage>
+                </MessageTextWrapper>
+              </SingleMessage>
+              <MessageRightInfo>
+                <TextTime>{story.time}</TextTime>
+                {index === 0 && (
+                  <Image
+                    source={require('../../assets/svg/Frame.png')}
+                    style={{ width: 20, height: 18, marginLeft: 15 }}
+                  />
+                )}
+              </MessageRightInfo>
+            </MessageContainer>
+          </TouchableOpacity>
         ))}
       </MessageWrapper>
     </>
@@ -79,10 +89,13 @@ const Message = ({ navigation }) => {
 };
 
 const SingleMessage = styled(View)`
-  margin-left: 10px;
-  padding-left: 17px;
   flex-direction: row;
   margin-bottom: 15px;
+`;
+
+const MessageContainer = styled(View)`
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 const TextContainer = styled(View)`
@@ -115,12 +128,13 @@ const MessageTextWrapper = styled(View)`
 
 const MessageRightInfo = styled(View)`
   flex-direction: column;
-  justify-content: flex-end;
-  margin-left: 50px;
+  margin-top: 2px;
 `;
 
 const MessageWrapper = styled(View)`
   flex-direction: column;
+  padding-left: 30px;
+  padding-right: 20px;
 `;
 
 const StyledText = styled(Text)`

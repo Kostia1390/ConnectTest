@@ -4,16 +4,16 @@ import styled, { css } from '@emotion/native';
 import Header from '../src/components/Header';
 import StoryMenu from '../src/components/StoryMenu';
 import Message from '../src/components/Message';
+import BottomButton from '../src/components/BottomButton';
 
-export const Home = ({ navigation }) => {
+export const Home = () => {
   return (
     <MainContainer>
       <Header />
 
       <StoryMenu />
-      <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
-        <Message />
-      </TouchableOpacity>
+      <Message />
+      <BottomButton />
     </MainContainer>
   );
 };

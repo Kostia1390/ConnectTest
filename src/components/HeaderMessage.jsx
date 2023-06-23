@@ -1,51 +1,61 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Modal } from 'react-native';
 import styled, { css } from '@emotion/native';
+import { useNavigation } from '@react-navigation/native';
 
 const HeaderMessage = () => {
+  const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
 
   const closeModal = () => {
     setModalVisible(false);
   };
 
-  return (
-    <MainContainer>
-      <Image
-        source={require('../../assets/svg/Back.png')}
-        style={{ width: 40, height: 40, marginRight: 10 }}
-      />
-      <Image source={require('../../assets/svg/Logo1.png')} style={{ width: 40, height: 40 }} />
-      <MessageTextWrapper>
-        <TextUser>Ксения Миро</TextUser>
-        <TextMessage>@ksenia2303</TextMessage>
-      </MessageTextWrapper>
+  const goToHome = () => {
+    navigation.navigate('Home');
+  };
 
-      <Image
-        source={require('../../assets/svg/camera.png')}
-        style={{ width: 24, height: 24, marginLeft: 30 }}
-      />
-      <TouchableOpacity onPress={() => setModalVisible(true)}>
-        <Image source={require('../../assets/svg/Etc.png')} style={{ width: 40, height: 40 }} />
-      </TouchableOpacity>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}>
-        <ModalContainer>
-          <ModalWrapper>
-            <TextModal>Ответить</TextModal>
-            <TextModal>Скопировать</TextModal>
-            <TextModal>Изменить</TextModal>
-            <TextModal user>Удалить</TextModal>
-            <TouchableOpacity onPress={closeModal}>
-              <TextModal back>Отмена</TextModal>
-            </TouchableOpacity>
-          </ModalWrapper>
-        </ModalContainer>
-      </Modal>
-    </MainContainer>
+  return (
+    <>
+      <MainContainer>
+        <TouchableOpacity onPress={goToHome}>
+          <Image
+            source={require('../../assets/svg/Back.png')}
+            style={{ width: 40, height: 40, marginRight: 10 }}
+          />
+        </TouchableOpacity>
+        <Image source={require('../../assets/svg/Logo1.png')} style={{ width: 40, height: 40 }} />
+        <MessageTextWrapper>
+          <TextUser>Ксения Миро</TextUser>
+          <TextMessage>@ksenia2303</TextMessage>
+        </MessageTextWrapper>
+
+        <Image
+          source={require('../../assets/svg/camera.png')}
+          style={{ width: 24, height: 24, marginLeft: 30 }}
+        />
+        <TouchableOpacity onPress={() => setModalVisible(true)}>
+          <Image source={require('../../assets/svg/Etc.png')} style={{ width: 40, height: 40 }} />
+        </TouchableOpacity>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => setModalVisible(false)}>
+          <ModalContainer>
+            <ModalWrapper>
+              <TextModal>Ответить</TextModal>
+              <TextModal>Скопировать</TextModal>
+              <TextModal>Изменить</TextModal>
+              <TextModal user>Удалить</TextModal>
+              <TouchableOpacity onPress={closeModal}>
+                <TextModal back>Отмена</TextModal>
+              </TouchableOpacity>
+            </ModalWrapper>
+          </ModalContainer>
+        </Modal>
+      </MainContainer>
+    </>
   );
 };
 
