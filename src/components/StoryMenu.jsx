@@ -26,7 +26,7 @@ const storiesData = [
   {
     id: 5,
     name: 'Инна К.',
-    photo: require('../../assets/svg/photo5.png'),
+    photo: require('../../assets/svg/photo1.png'),
   },
 ];
 
@@ -39,7 +39,7 @@ const StoryMenu = () => {
       <StoryWrapper>
         {storiesData.map((story, index) => (
           <SingleStory key={story.id} style={index > 0 && { marginLeft: 2 }}>
-            <Image source={story.photo} style={{ width: 50, height: 50 }} />
+            <Image source={story.photo} style={{ width: 64, height: 64 }} />
             <TextStory>{story.name}</TextStory>
           </SingleStory>
         ))}
@@ -52,7 +52,8 @@ const TextStory = styled(Text)`
   font-size: 13px;
   font-weight: 500;
   line-height: 17px;
-  align-items: center;
+  margin-left: 10px;
+  margin-top: 7px;
 `;
 
 const StoryWrapper = styled(View)`
@@ -68,11 +69,11 @@ const StyledText = styled(Text)`
 
 const SingleStory = styled(View)`
   margin-left: 10px;
-  padding-left: 17px;
+  padding-left: 12px;
 `;
 
 const TextContainer = styled(View)`
-  padding: 0px 30px 10px 25px;
+  padding: 10px 30px 15px 25px;
 `;
 
 export default StoryMenu;

@@ -99,7 +99,7 @@ const MessageContainer = styled(View)`
 `;
 
 const TextContainer = styled(View)`
-  padding: 20px 30px 15px 25px;
+  padding: 20px 30px 15px 30px;
 `;
 
 const TextTime = styled(Text)`

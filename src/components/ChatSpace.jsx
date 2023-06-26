@@ -53,8 +53,8 @@ const ChatSpace = () => {
             source={require('../../assets/svg/CameraOn.png')}
             style={{ width: 39, height: 39 }}
           />
-          <TextUserCall textColor={index >= 2 ? '#fff' : undefined}>Пропущений</TextUserCall>
-          <TextTime user={index >= 2 ? '#fff' : undefined}>9:34</TextTime>
+          <TextUserCall textColor={index >= 2 ? '#f3f2f2' : undefined}>Пропущений</TextUserCall>
+          <TextTime user={index >= 2 ? '#f3f2f2' : undefined}>9:34</TextTime>
         </CallWrapper>
       ))}
     </>
@@ -77,7 +77,7 @@ const Message = styled(View)`
   align-self: flex-start;
   margin-top: 10px;
   margin-left: ${(props) => (props.isId4 ? '75px' : '10px')};
-  padding: 10px;
+  padding: 11px;
   border-radius: 20px;
   background-color: ${(props) => (props.isId4 ? '#2f2f2f' : '#e8e7ed')};
 `;
@@ -102,7 +102,7 @@ const TextUser = styled(Text)`
   ${(props) =>
     props.user &&
     css`
-      color: #fff;
+      color: #f3f2f2;
     `}
 `;
 
@@ -116,7 +116,7 @@ const TextTime = styled(Text)`
   ${(props) =>
     props.user &&
     css`
-      color: #fff;
+      color: #f3f2f2;
     `}
 `;
 
