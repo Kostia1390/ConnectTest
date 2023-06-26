@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import styled, { css } from '@emotion/native';
 import Header from '../src/components/Header';
 import StoryMenu from '../src/components/StoryMenu';
@@ -10,9 +10,10 @@ export const Home = () => {
   return (
     <MainContainer>
       <Header />
-
-      <StoryMenu />
-      <Message />
+      <ScrollView>
+        <StoryMenu />
+        <Message />
+      </ScrollView>
       <BottomButton />
     </MainContainer>
   );
