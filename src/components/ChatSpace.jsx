@@ -5,29 +5,76 @@ import styled, { css } from '@emotion/native';
 const storiesData = [
   {
     id: 1,
+    chatId: 1,
+    usedId: 1,
     message: 'Привет',
+    type: 'text',
     time: '9:30',
   },
   {
     id: 2,
+    chatId: 1,
+    usedId: 1,
     message: 'Как дела? Чем занимаешься?',
+    type: 'text',
     time: '9:32',
   },
   {
     id: 3,
+    chatId: 1,
+    usedId: 1,
     message: 'Пример длинного текста, который переносится на следующую строку',
+    type: 'text',
     time: '9:34',
   },
   {
     id: 4,
+    chatId: 1,
+    usedId: 2,
     message: 'Пример длинного текста, который переносится на следующую строку',
+    type: 'text',
     time: '9:34',
   },
 
   {
     id: 5,
+    chatId: 1,
+    usedId: 1,
     message:
       'Пример длинного текста, который переносится на следующую строку переносится на следующую строку',
+    type: 'text',
+    time: '9:34',
+  },
+  {
+    id: 6,
+    chatId: 1,
+    usedId: 1,
+    message: '',
+    type: 'missed_call',
+    time: '9:34',
+  },
+  {
+    id: 7,
+    chatId: 1,
+    usedId: 1,
+    message: '',
+    type: 'missed_call',
+    time: '9:34',
+  },
+  {
+    id: 8,
+    chatId: 1,
+    usedId: 2,
+    message: '',
+    type: 'missed_call',
+    time: '9:34',
+  },
+  {
+    id: 9,
+    chatId: 1,
+    usedId: 2,
+    message: '',
+    type: 'missed_call',
     time: '9:34',
   },
 ];
@@ -37,49 +84,44 @@ const ChatSpace = () => {
     <>
       <MessageWrapper>
         {storiesData.map((story) => (
-          <Message key={story.id} isId4={story.id === 4}>
-            <TextUser user={story.id === 4}>{story.message}</TextUser>
-            <TextTime user={story.id === 4}>{story.time}</TextTime>
+          <Message key={story.id} usedId={story.usedId} isMissedCall={story.type === 'missed_call'}>
+            {story.type === 'text' ? (
+              <>
+                <TextUser usedId={story.usedId}>{story.message}</TextUser>
+                <TextTime usedId={story.usedId}>{story.time}</TextTime>
+              </>
+            ) : story.type === 'missed_call' ? (
+              <>
+                <Image
+                  source={require('../../assets/svg/CameraOn.png')}
+                  style={{ width: 39, height: 39 }}
+                />
+                <TextUserCall usedId={story.usedId}>Пропущений</TextUserCall>
+                <TextTime usedId={story.usedId}>{story.time}</TextTime>
+              </>
+            ) : null}
           </Message>
         ))}
       </MessageWrapper>
-
-      {Array.from({ length: 4 }).map((_, index) => (
-        <CallWrapper
-          key={index}
-          backgroundColor={index < 2 ? '#e8e7ed' : '#2f2f2f'}
-          marginLeft={index < 2 ? '10px' : '225px'}>
-          <Image
-            source={require('../../assets/svg/CameraOn.png')}
-            style={{ width: 39, height: 39 }}
-          />
-          <TextUserCall textColor={index >= 2 ? '#f3f2f2' : undefined}>Пропущений</TextUserCall>
-          <TextTime user={index >= 2 ? '#f3f2f2' : undefined}>9:34</TextTime>
-        </CallWrapper>
-      ))}
     </>
   );
 };
 
 const MessageWrapper = styled(View)``;
 
-const CallWrapper = styled(View)`
-  align-self: flex-start;
-  margin-top: 10px;
-  margin-left: ${(props) => props.marginLeft};
-  padding: 10px;
-  border-radius: 20px;
-  background-color: ${(props) => props.backgroundColor};
-  flex-direction: row;
-`;
-
 const Message = styled(View)`
   align-self: flex-start;
   margin-top: 10px;
-  margin-left: ${(props) => (props.isId4 ? '75px' : '10px')};
+  margin-left: ${(props) => (props.usedId === 1 ? '10px' : 'auto')};
+  margin-right: ${(props) => (props.usedId === 2 ? '10px' : 'auto')};
   padding: 11px;
   border-radius: 20px;
-  background-color: ${(props) => (props.isId4 ? '#2f2f2f' : '#e8e7ed')};
+  background-color: ${(props) => (props.usedId === 1 ? '#e8e7ed' : '#2f2f2f')};
+  ${(props) =>
+    props.isMissedCall &&
+    css`
+      flex-direction: row;
+    `}
 `;
 
 const TextUserCall = styled(Text)`
@@ -87,11 +129,7 @@ const TextUserCall = styled(Text)`
   font-weight: 400;
   line-height: 17px;
   padding: 10px 20px 0px 5px;
-  ${(props) =>
-    props.textColor &&
-    css`
-      color: ${props.textColor};
-    `}
+  color: ${(props) => (props.usedId === 1 ? '#000000' : '#ffffff')};
 `;
 
 const TextUser = styled(Text)`
@@ -99,11 +137,7 @@ const TextUser = styled(Text)`
   font-weight: 300;
   line-height: 22px;
   padding: 0px 20px 0px 5px;
-  ${(props) =>
-    props.user &&
-    css`
-      color: #f3f2f2;
-    `}
+  color: ${(props) => (props.usedId === 1 ? '#000000' : '#ffffff')};
 `;
 
 const TextTime = styled(Text)`
@@ -113,11 +147,7 @@ const TextTime = styled(Text)`
   position: absolute;
   bottom: 5px;
   right: 5px;
-  ${(props) =>
-    props.user &&
-    css`
-      color: #f3f2f2;
-    `}
+  color: ${(props) => (props.usedId === 1 ? '#000000' : '#ffffff')};
 `;
 
 export default ChatSpace;
