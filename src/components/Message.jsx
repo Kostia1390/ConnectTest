@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import styled from '@emotion/native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -47,6 +47,14 @@ const storiesData = [
     time: '7:30',
     photo: require('../../assets/svg/Logo6.png'),
   },
+
+  {
+    id: 7,
+    name: 'Алина Шевченко',
+    message: 'Это да',
+    time: '9:00',
+    photo: require('../../assets/svg/Logo5.png'),
+  },
 ];
 
 const Message = () => {
@@ -59,31 +67,32 @@ const Message = () => {
       <TextContainer>
         <StyledText>Сообщения</StyledText>
       </TextContainer>
-
-      <MessageWrapper>
-        {storiesData.map((story, index) => (
-          <TouchableOpacity onPress={goToChat} key={story.id}>
-            <MessageContainer>
-              <SingleMessage>
-                <Image source={story.photo} style={{ width: 64, height: 64 }} />
-                <MessageTextWrapper>
-                  <TextUser>{story.name}</TextUser>
-                  <TextMessage>{story.message}</TextMessage>
-                </MessageTextWrapper>
-              </SingleMessage>
-              <MessageRightInfo>
-                <TextTime>{story.time}</TextTime>
-                {index === 0 && (
-                  <Image
-                    source={require('../../assets/svg/Frame.png')}
-                    style={{ width: 20, height: 18, marginLeft: 15 }}
-                  />
-                )}
-              </MessageRightInfo>
-            </MessageContainer>
-          </TouchableOpacity>
-        ))}
-      </MessageWrapper>
+      <ScrollView>
+        <MessageWrapper>
+          {storiesData.map((story, index) => (
+            <TouchableOpacity onPress={goToChat} key={story.id}>
+              <MessageContainer>
+                <SingleMessage>
+                  <Image source={story.photo} style={{ width: 64, height: 64 }} />
+                  <MessageTextWrapper>
+                    <TextUser>{story.name}</TextUser>
+                    <TextMessage>{story.message}</TextMessage>
+                  </MessageTextWrapper>
+                </SingleMessage>
+                <MessageRightInfo>
+                  <TextTime>{story.time}</TextTime>
+                  {index === 0 && (
+                    <Image
+                      source={require('../../assets/svg/Frame.png')}
+                      style={{ width: 20, height: 18, marginLeft: 15 }}
+                    />
+                  )}
+                </MessageRightInfo>
+              </MessageContainer>
+            </TouchableOpacity>
+          ))}
+        </MessageWrapper>
+      </ScrollView>
     </>
   );
 };

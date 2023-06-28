@@ -10,10 +10,11 @@ export const Home = () => {
   return (
     <MainContainer>
       <Header />
-      <ScrollView>
-        <StoryMenu />
-        <Message />
-      </ScrollView>
+
+      <StoryMenu />
+
+      <Message />
+
       <BottomButton />
     </MainContainer>
   );

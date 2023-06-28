@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import styled from '@emotion/native';
 
 const storiesData = [
@@ -36,14 +36,16 @@ const StoryMenu = () => {
       <TextContainer>
         <StyledText>Запросы коннект</StyledText>
       </TextContainer>
-      <StoryWrapper>
-        {storiesData.map((story, index) => (
-          <SingleStory key={story.id} style={index > 0 && { marginLeft: 2 }}>
-            <Image source={story.photo} style={{ width: 64, height: 64 }} />
-            <TextStory>{story.name}</TextStory>
-          </SingleStory>
-        ))}
-      </StoryWrapper>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+        <StoryWrapper>
+          {storiesData.map((story, index) => (
+            <SingleStory key={story.id} style={index > 0 && { marginLeft: 2 }}>
+              <Image source={story.photo} style={{ width: 64, height: 64 }} />
+              <TextStory>{story.name}</TextStory>
+            </SingleStory>
+          ))}
+        </StoryWrapper>
+      </ScrollView>
     </>
   );
 };
@@ -59,6 +61,7 @@ const TextStory = styled(Text)`
 const StoryWrapper = styled(View)`
   flex-direction: row;
   align-items: center;
+  padding: 10px 0px 10px 0px;
 `;
 
 const StyledText = styled(Text)`
