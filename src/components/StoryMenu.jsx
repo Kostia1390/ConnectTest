@@ -61,7 +61,7 @@ const TextStory = styled(Text)`
 const StoryWrapper = styled(View)`
   flex-direction: row;
   align-items: center;
-  padding: 10px 0px 10px 0px;
+  padding: 20px 0px 15px 0px;
 `;
 
 const StyledText = styled(Text)`
