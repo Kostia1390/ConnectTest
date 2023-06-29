@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'rea
 import styled, { css } from '@emotion/native';
 import Header from '../src/components/Header';
 import StoryMenu from '../src/components/StoryMenu';
-import Message from '../src/components/Message';
+import ChatList from '../src/components/ChatList';
 import BottomButton from '../src/components/BottomButton';
 
 export const Home = () => {
@@ -13,7 +13,7 @@ export const Home = () => {
 
       <StoryMenu />
 
-      <Message />
+      <ChatList />
 
       <BottomButton />
     </MainContainer>
