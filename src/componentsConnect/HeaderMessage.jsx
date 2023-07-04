@@ -20,22 +20,22 @@ const HeaderMessage = () => {
       <MainContainer>
         <TouchableOpacity onPress={goToHome}>
           <Image
-            source={require('../../assets/svg/Back.png')}
+            source={require('../assets/svg/Back.png')}
             style={{ width: 40, height: 40, marginRight: 10 }}
           />
         </TouchableOpacity>
-        <Image source={require('../../assets/svg/Logo1.png')} style={{ width: 40, height: 40 }} />
+        <Image source={require('../assets/svg/Logo1.png')} style={{ width: 40, height: 40 }} />
         <MessageTextWrapper>
           <TextUser>Ксения Миро</TextUser>
           <TextMessage>@ksenia2303</TextMessage>
         </MessageTextWrapper>
 
         <Image
-          source={require('../../assets/svg/camera.png')}
+          source={require('../assets/svg/camera.png')}
           style={{ width: 24, height: 24, marginLeft: 30 }}
         />
         <TouchableOpacity onPress={() => setModalVisible(true)}>
-          <Image source={require('../../assets/svg/Etc.png')} style={{ width: 40, height: 40 }} />
+          <Image source={require('../assets/svg/Etc.png')} style={{ width: 40, height: 40 }} />
         </TouchableOpacity>
         <Modal
           animationType="slide"

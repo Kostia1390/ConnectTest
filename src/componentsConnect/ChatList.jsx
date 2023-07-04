@@ -9,28 +9,28 @@ const storiesData = [
     name: 'Ксения Миро',
     message: 'Привет! Росскажи о себе',
     time: '11:00',
-    photo: require('../../assets/svg/Logo1.png'),
+    photo: require('../assets/svg/Logo1.png'),
   },
   {
     id: 2,
     name: 'Анна Вишневская',
     message: 'Тут будет длиное сообщение ...',
     time: '10:00',
-    photo: require('../../assets/svg/Logo2.png'),
+    photo: require('../assets/svg/Logo2.png'),
   },
   {
     id: 3,
     name: 'Алина Шевченко',
     message: 'Печатает...',
     time: '9:00',
-    photo: require('../../assets/svg/Logo3.png'),
+    photo: require('../assets/svg/Logo3.png'),
   },
   {
     id: 4,
     name: 'Ксения Миро',
     message: 'Пример сообщения',
     time: '7:30',
-    photo: require('../../assets/svg/Logo4.png'),
+    photo: require('../assets/svg/Logo4.png'),
   },
 
   {
@@ -38,14 +38,14 @@ const storiesData = [
     name: 'Алина Шевченко',
     message: 'Это да',
     time: '9:00',
-    photo: require('../../assets/svg/Logo5.png'),
+    photo: require('../assets/svg/Logo5.png'),
   },
   {
     id: 6,
     name: 'Ксения Миро',
     message: 'Пример сообщения',
     time: '7:30',
-    photo: require('../../assets/svg/Logo6.png'),
+    photo: require('../assets/svg/Logo6.png'),
   },
 
   {
@@ -53,7 +53,7 @@ const storiesData = [
     name: 'Алина Шевченко',
     message: 'Это да',
     time: '9:00',
-    photo: require('../../assets/svg/Logo5.png'),
+    photo: require('../assets/svg/Logo5.png'),
   },
 ];
 
@@ -83,7 +83,7 @@ const ChatList = () => {
                   <TextTime>{story.time}</TextTime>
                   {index === 0 && (
                     <Image
-                      source={require('../../assets/svg/Frame.png')}
+                      source={require('../assets/svg/Frame.png')}
                       style={{ width: 20, height: 18, marginLeft: 15 }}
                     />
                   )}

@@ -10,10 +10,7 @@ const Message = ({ id, userId, type, message, time }) => {
       {isText && <TextUser userId={userId}>{message}</TextUser>}
       {isMissedCall && (
         <>
-          <Image
-            source={require('../../assets/svg/CameraOn.png')}
-            style={{ width: 39, height: 39 }}
-          />
+          <Image source={require('../assets/svg/CameraOn.png')} style={{ width: 39, height: 39 }} />
           <TextUserCall userId={userId}>Пропущений</TextUserCall>
         </>
       )}

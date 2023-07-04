@@ -4,10 +4,10 @@ import styled, { css } from '@emotion/native';
 const BottomButton = () => {
   return (
     <MainContainer>
-      <Image source={require('../../assets/svg/Button1.png')} style={{ width: 24, height: 24 }} />
-      <Image source={require('../../assets/svg/Button2.png')} style={{ width: 24, height: 24 }} />
-      <Image source={require('../../assets/svg/Button3.png')} style={{ width: 26, height: 24 }} />
-      <Image source={require('../../assets/svg/Button4.png')} style={{ width: 24, height: 24 }} />
+      <Image source={require('../assets/svg/Button1.png')} style={{ width: 24, height: 24 }} />
+      <Image source={require('../assets/svg/Button2.png')} style={{ width: 24, height: 24 }} />
+      <Image source={require('../assets/svg/Button3.png')} style={{ width: 26, height: 24 }} />
+      <Image source={require('../assets/svg/Button4.png')} style={{ width: 24, height: 24 }} />
     </MainContainer>
   );
 };

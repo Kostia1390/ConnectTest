@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import styled, { css } from '@emotion/native';
-import Header from '../src/components/Header';
-import StoryMenu from '../src/components/StoryMenu';
-import ChatList from '../src/components/ChatList';
-import BottomButton from '../src/components/BottomButton';
+import Header from '../src/componentsConnect/Header';
+import StoryMenu from '../src/componentsConnect/StoryMenu';
+import ChatList from '../src/componentsConnect/ChatList';
+import BottomButton from '../src/componentsConnect/BottomButton';
+import { NavigationBar } from '../src/components/NavigationBar';
 
 export const Home = () => {
   return (
@@ -15,7 +16,8 @@ export const Home = () => {
 
       <ChatList />
 
-      <BottomButton />
+      {/* <BottomButton /> */}
+      <NavigationBar />
     </MainContainer>
   );
 };

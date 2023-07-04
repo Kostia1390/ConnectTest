@@ -13,11 +13,11 @@ const InputMessage = () => {
         onChangeText={setTextInputValue}
       />
       <Image
-        source={require('../../assets/svg/micro.png')}
+        source={require('../assets/svg/micro.png')}
         style={{ width: 30, height: 30, marginTop: 10 }}
       />
       <Image
-        source={require('../../assets/svg/add.png')}
+        source={require('../assets/svg/add.png')}
         style={{ width: 30, height: 30, marginTop: 10 }}
       />
     </IntputWrapper>

@@ -6,27 +6,27 @@ const storiesData = [
   {
     id: 1,
     name: 'Инна К.',
-    photo: require('../../assets/svg/photo1.png'),
+    photo: require('../assets/svg/photo1.png'),
   },
   {
     id: 2,
     name: 'Анаста...',
-    photo: require('../../assets/svg/photo2.png'),
+    photo: require('../assets/svg/photo2.png'),
   },
   {
     id: 3,
     name: 'Инна К.',
-    photo: require('../../assets/svg/photo3.png'),
+    photo: require('../assets/svg/photo3.png'),
   },
   {
     id: 4,
     name: 'Инна К.',
-    photo: require('../../assets/svg/photo4.png'),
+    photo: require('../assets/svg/photo4.png'),
   },
   {
     id: 5,
     name: 'Инна К.',
-    photo: require('../../assets/svg/photo1.png'),
+    photo: require('../assets/svg/photo1.png'),
   },
 ];
 

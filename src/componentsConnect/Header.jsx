@@ -4,18 +4,9 @@ import styled, { css } from '@emotion/native';
 const Header = () => {
   return (
     <MainContainer>
-      <Image
-        source={require('../../assets/svg/LogoAuthor.png')}
-        style={{ width: 40, height: 40 }}
-      />
-      <Image
-        source={require('../../assets/svg/ConnectText.png')}
-        style={{ width: 122, height: 22 }}
-      />
-      <Image
-        source={require('../../assets/svg/Notifacation.png')}
-        style={{ width: 40, height: 40 }}
-      />
+      <Image source={require('../assets/svg/LogoAuthor.png')} style={{ width: 40, height: 40 }} />
+      <Image source={require('../assets/svg/ConnectText.png')} style={{ width: 122, height: 22 }} />
+      <Image source={require('../assets/svg/Notifacation.png')} style={{ width: 40, height: 40 }} />
     </MainContainer>
   );
 };
