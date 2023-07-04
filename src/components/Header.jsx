@@ -1,13 +1,20 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import styled, { css } from '@emotion/native';
+import { useNavigation } from '@react-navigation/native';
 
 const Header = () => {
+  const navigation = useNavigation();
+  const goToEnterPassword = () => {
+    navigation.navigate('EnterPassword');
+  };
   return (
     <MainContainer>
-      <Image
-        source={require('../../assets/svg/LogoAuthor.png')}
-        style={{ width: 40, height: 40 }}
-      />
+      <TouchableOpacity onPress={goToEnterPassword}>
+        <Image
+          source={require('../../assets/svg/LogoAuthor.png')}
+          style={{ width: 40, height: 40 }}
+        />
+      </TouchableOpacity>
       <Image
         source={require('../../assets/svg/ConnectText.png')}
         style={{ width: 122, height: 22 }}
