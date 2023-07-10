@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Chat } from './Chat';
 import { Home } from './Home';
 import { EnterPassword } from './EnterPassword';
+import { NewPage } from './NewPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ export const Navigation = () => {
           component={EnterPassword}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="NewPage" component={NewPage} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

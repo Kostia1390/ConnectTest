@@ -11,52 +11,40 @@ import { useNavigation } from '@react-navigation/native';
 import styled, { css } from '@emotion/native';
 import { TextInput, Provider, DefaultTheme } from 'react-native-paper';
 
-const CustomInput = ({ onChangePassword, passwordError }) => {
-  const [showPassword, setShowPassword] = useState(false);
-
-  const handlePasswordChange = (password) => {
-    onChangePassword(password);
-  };
-
+const CustomInput = ({
+  onChangePassword,
+  error,
+  label,
+  placeholder,
+  errorMessage,
+  isHidden,
+  rightIcon,
+}) => {
   const inputTheme = {
     ...DefaultTheme,
     roundness: 29,
     colors: {
       ...DefaultTheme.colors,
-      primary: passwordError ? 'red' : '#2F2F2F',
+      primary: error ? 'red' : '#2F2F2F',
     },
   };
 
   return (
-    <Provider theme={inputTheme}>
+    <Provider>
       <TextInput
-        label="Пароль"
+        label={label}
         mode="outlined"
-        placeholder="Введите пароль"
+        placeholder={placeholder}
         style={styles.input}
         theme={inputTheme}
         placeholderStyle={styles.placeholder}
-        secureTextEntry={showPassword}
-        onChangeText={handlePasswordChange}
+        secureTextEntry={isHidden}
+        onChangeText={onChangePassword}
       />
 
-      {passwordError && <ErrorText>Неверный пароль</ErrorText>}
+      {error && <ErrorText>{errorMessage}</ErrorText>}
 
-      <TouchableWithoutFeedback onPress={() => setShowPassword(!showPassword)}>
-        <PasswordToggleWrapper>
-          {showPassword ? (
-            <Image
-              source={require('../../assets/svg/HideEye.png')}
-              style={{ width: 20, height: 20 }}
-            />
-          ) : (
-            <Image
-              source={require('../../assets/svg/ShowEye.png')}
-              style={{ width: 20, height: 20 }}
-            />
-          )}
-        </PasswordToggleWrapper>
-      </TouchableWithoutFeedback>
+      {rightIcon && rightIcon()}
     </Provider>
   );
 };
@@ -74,12 +62,6 @@ const styles = StyleSheet.create({
     opacity: 0.3,
   },
 });
-
-const PasswordToggleWrapper = styled(View)`
-  position: absolute;
-  right: 20px;
-  top: 23px;
-`;
 
 const ErrorText = styled(Text)`
   padding-left: 25px;
