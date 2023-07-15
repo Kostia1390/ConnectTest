@@ -8,9 +8,14 @@ import DatePickerCustom from '../src/components/DatePickerCustom';
 import CustomSelect from '../src/components/CustomSelect';
 import CustomRadioButton from '../src/components/CustomRadioButton';
 import CustomCheckBox from '../src/components/CustomCheckBox';
+import CustomMaps from '../src/components/CustomMaps';
+import CustomChip from '../src/components/CustomChip';
+import CustomTextArea from '../src/components/CustomTextArea';
+import InfoWindows from '../src/components/InfoWindows';
 
 const HideEyeIcon = require(`../assets/svg/HideEye.png`);
 const ShowEyeIcon = require(`../assets/svg/ShowEye.png`);
+const BigLike = require(`../assets/svg/BigLike.png`);
 
 export const NewPage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -24,16 +29,20 @@ export const NewPage = () => {
     setChosenOption((prev) => !prev);
   };
 
+  const handleChipClose = () => {
+    setSelectedOption(null);
+  };
+
   return (
     <MainContainer>
-      <HeaderInfo />
+      {/* <HeaderInfo />
       <TextContainer>
         <MainText>Введите пароль</MainText>
         <SubText>Пароль к аккаунту +380978906765</SubText>
-      </TextContainer>
+      </TextContainer> */}
 
       {/* <DatePickerCustom /> */}
-      <CustomRadioButton
+      {/* <CustomRadioButton
         textRadio={'На жизнь хватает'}
         isSelected={selectedOption === 'На жизнь хватает'}
         onPress={() => handlePress('На жизнь хватает')}
@@ -48,11 +57,20 @@ export const NewPage = () => {
         isSelected={selectedOption === 'Вариант 3'}
         onPress={() => handlePress('Вариант 3')}
       />
-      <CustomCheckBox
+      {selectedOption && <CustomChip selectedOption={selectedOption} onClose={handleChipClose} />} */}
+      {/* <CustomCheckBox
         textCheck={'Вариант 3'}
         isChose={chosenOption}
         onPress={handleCheckBoxPress}
-      />
+      /> */}
+      {/* <CustomMaps /> */}
+
+      <CustomTextArea />
+      {/* <InfoWindows
+        InfoMainText="Поздравляем!"
+        InfoSubText="Вы успешно прошли регистрацию, сейчас ваш профиль находится на верификации, некоторые функции будут ограничены"
+        InfoImage={BigLike}
+      /> */}
       <CustomButton />
     </MainContainer>
   );

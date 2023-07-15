@@ -10,21 +10,24 @@ import {
 import RadioButton from 'react-native-radio-buttons-group';
 import styled, { css } from '@emotion/native';
 import { useNavigation } from '@react-navigation/native';
+import CustomCheckBox from './CustomCheckBox';
 
 const RadoBtnOn = require(`../../assets/svg/RadoBtnOn.png`);
 const RadoBtnOff = require(`../../assets/svg/RadoBtnOff.png`);
 
-const CustomRadioButton = ({ textRadio, isSelected, onPress }) => {
+const CustomRadioButton = ({ textRadio, isSelected, onPress, showImage = true }) => {
   const toggleIcon = isSelected ? RadoBtnOn : RadoBtnOff;
   return (
-    <MainContainer isSelected={isSelected}>
-      <RadioText isSelected={isSelected}>{textRadio}</RadioText>
-      <TouchableWithoutFeedback onPress={onPress}>
-        <RadioWrapper>
-          <Image source={toggleIcon} style={{ width: 15, height: 15 }} />
-        </RadioWrapper>
-      </TouchableWithoutFeedback>
-    </MainContainer>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <MainContainer isSelected={isSelected}>
+        <RadioText isSelected={isSelected}>{textRadio}</RadioText>
+        {showImage && (
+          <RadioWrapper>
+            <Image source={toggleIcon} style={{ width: 15, height: 15 }} />
+          </RadioWrapper>
+        )}
+      </MainContainer>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -49,7 +52,6 @@ const MainContainer = styled(View)`
   border: ${(props) => (props.isSelected ? '1px' : '0.3px')};
   border-color: ${(props) => (props.isSelected ? '#2F2F2F' : '#A2A0AC')};
   margin-bottom: 10px;
-  background-color: ${(props) => (props.isSelected ? '#ffffff' : '#F3F2F8')};
 `;
 
 export default CustomRadioButton;

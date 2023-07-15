@@ -71,17 +71,18 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     fontSize: 14,
+    backgroundColor: '#f2f2f2',
   },
   optionsContainer: {
-    backgroundColor: 'white',
     padding: 20,
     borderRadius: 20,
+    borderWidth: 0.3,
+    borderColor: '#A3A3A3',
   },
   optionWithBorder: {
     borderBottomWidth: 0.5,
     borderBottomColor: '#ccc',
   },
-  option: {},
 });
 
 export default CustomSelect;

@@ -7,6 +7,9 @@ const Header = () => {
   const goToEnterPassword = () => {
     navigation.navigate('EnterPassword');
   };
+  const goToFirsScreen = () => {
+    navigation.navigate('FirstScreen');
+  };
   return (
     <MainContainer>
       <TouchableOpacity onPress={goToEnterPassword}>
@@ -15,10 +18,12 @@ const Header = () => {
           style={{ width: 40, height: 40 }}
         />
       </TouchableOpacity>
-      <Image
-        source={require('../../assets/svg/ConnectText.png')}
-        style={{ width: 122, height: 22 }}
-      />
+      <TouchableOpacity onPress={goToFirsScreen}>
+        <Image
+          source={require('../../assets/svg/ConnectText.png')}
+          style={{ width: 122, height: 22 }}
+        />
+      </TouchableOpacity>
       <Image
         source={require('../../assets/svg/Notifacation.png')}
         style={{ width: 40, height: 40 }}

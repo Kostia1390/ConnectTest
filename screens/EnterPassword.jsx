@@ -72,6 +72,12 @@ export const EnterPassword = () => {
         selectedValue="Не выбрано"
         label="Ваш пол"
       />
+      <CustomSelect
+        options={genderOptions}
+        onSelect={(value) => console.log(value)}
+        selectedValue="Не выбрано"
+        label="Ваш пол"
+      />
       {/* <DatePickerCustom /> */}
       <TouchableOpacity onPress={goToNewPage}>
         <CustomButton

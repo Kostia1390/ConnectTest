@@ -22,7 +22,6 @@ const StyledButton = styled(TouchableOpacity)`
 `;
 
 const StyledButtonText = styled(Text)`
-  color: white;
   font-weight: 700;
   font-size: 16px;
   line-height: 21px;

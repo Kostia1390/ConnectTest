@@ -1,6 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Chat } from './Chat';
+import { StartSelection } from './StartSelection';
+import { FirstScreen } from './FirstScreen';
 import { Home } from './Home';
 import { EnterPassword } from './EnterPassword';
 import { NewPage } from './NewPage';
@@ -19,6 +21,12 @@ export const Navigation = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="NewPage" component={NewPage} options={{ headerShown: false }} />
+        <Stack.Screen
+          name="StartSelection"
+          component={StartSelection}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="FirstScreen" component={FirstScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
